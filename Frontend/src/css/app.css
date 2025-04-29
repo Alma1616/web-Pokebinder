@@ -1,0 +1,67 @@
+/* Valores globales --> Evita holguras */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  
+  .layout{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+  }
+  
+  /*es responsive*/
+  .header{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    height:120px;
+    padding-right:1rem;          
+             
+  }
+  
+  /* Responsive */
+  .navbar{
+    flex:1 1 0;                  /* se expande y puede encoger */
+    display:flex;
+    align-items:center;
+    background-color:#951abe; 
+  }
+  
+
+  .searchbar{
+    flex:0 1 560px;              /* ancho ideal 560 px, se adapta */
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    margin-left:auto;            
+    background-color:white;
+  }
+  
+
+  .search-box{
+    width:clamp(220px,40vw,320px);
+  }
+  
+  .content{
+    flex:1;
+    overflow-y:auto;
+    background:#951abe;
+  }
+  
+/*Responsive*/
+@media(max-width:900px){
+    .header{
+      flex-wrap:wrap;            /* permite salto de línea */
+      justify-content:center;
+    }
+    .navbar{flex:1 1 100%;}
+    .searchbar{
+      flex:1 1 100%;
+      margin-left:0;
+      justify-content:center;
+    }
+}
+  

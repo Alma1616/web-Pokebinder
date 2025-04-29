@@ -1,0 +1,127 @@
+/*Import de la fuente */ 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+.parent{
+    width: 100%;
+    height: 100%;
+}
+/* Full‑page centering */
+.login-wrapper {
+  min-height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 50px;
+  background: linear-gradient(145deg, white, #951abe 100%);
+  font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+}
+
+/* Bigger card */
+.login-card {
+  background: var(--poke-white);
+  padding: 2rem 3.5rem; /* increased */
+  border-radius: 1.2rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: clamp(350px, 90vw, 520px); /* busca la mejor propiedad sin pasarse del segundo ni del primero*/
+  margin-bottom: 0;
+}
+
+.logo {
+  width: 100px; /* Tamaño logo */
+  animation: spin 10s linear infinite; /*Velocidad de giros*/ 
+  margin-bottom: 1.2rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem; 
+  color: #951abe
+}
+
+.subtitle {
+  margin: 0 0 2rem;
+  font-size: 0.75rem; 
+  color: #951abe;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.7rem; /* larger */
+  margin-bottom: 1.2rem;
+  color: #951abe;
+}
+
+input {
+  font-family: inherit;
+  padding: 0.7rem; /* more padding */
+  margin-top: 0.35rem;
+  border: 2px solid #951abe;
+  border-radius: 0.6rem;
+  font-size: 0.85rem; /* larger text */
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #6a1091;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  margin-top: 0.7rem;
+  padding: 0.8rem 1rem; /* bigger button */
+  font-family: inherit;
+  font-size: 0.8rem;
+  background: #951abe;
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  background: #6a1091;
+}
+
+/* SIGN‑UP BUTTON */
+.signup-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  font-family: inherit;
+  font-size: 0.7rem;
+  color: var(--poke-purple);
+  background: transparent;
+  border: 2px solid var(--poke-purple);
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  transform: translateY(-3px);
+  background: var(--poke-purple);
+  color: var(--poke-white);
+}
+
+.error {
+  color: red;
+  font-size: 0.7rem; /* larger */
+  margin-top: 1.2rem;
+}
