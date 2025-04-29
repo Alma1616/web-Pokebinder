@@ -3,7 +3,7 @@
     <div class="login-card">
       <img src="@/photos/ditto.png" alt="Ditto"class="logo"/>
       <h1 class="title">PokéLogin</h1>
-      <p class="subtitle">Gotta sign 'em all!</p>
+      <p class="subtitle">Gotta log 'em all!</p>
 
       <!-- LOGIN FORM -->
       <form @submit.prevent="handleLogin" novalidate>
@@ -48,7 +48,7 @@ const email = ref('')
 const password = ref('')
 const error = ref('')
 
-const emit = defineEmits(['login'])
+const emit = defineEmits(['login']) //Permite comunicarse con el backend
 
 function handleLogin() {
   if (!email.value || !password.value) {

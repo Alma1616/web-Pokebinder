@@ -19,7 +19,7 @@
             </li>
             <li v-else>
               <router-link to="/login">Login</router-link>
-              <router-link to="/register">Signup</router-link>
+              <router-link to="/signup">Signup</router-link>
             </li>
             </ul>
           </nav>

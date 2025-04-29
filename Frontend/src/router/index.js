@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 
 import Login from '@/views/Login.vue'
+import Signup from '../views/Signup.vue'
 /*
 import register from '@/views/register.vue'
 import existingCollections from '@/views/existingCollections.vue'
@@ -16,6 +17,7 @@ import logOut from '@/views/logOut.vue'*/
 const routes = [
   { path: '/', component: Home },
   { path: '/login', component: Login },
+  {path: '/signup', component: Signup},
  /* { path: '/register', component: register },
   { path: '/existingCollections', component: existingCollections },
   { path: '/ownCollections', component: personalCollections },
