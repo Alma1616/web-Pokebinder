@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      busqueda: ''
+      busqueda: '' //acceder mediante this.busqueda
     }
   },
   methods: {

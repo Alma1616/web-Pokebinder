@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
-.header, .nav-links li a { /* Añadir la fuente aileron*/
+.header, .nav-links li a { 
   font-family: 'Press Start 2P', cursive;
 }
   
@@ -19,9 +19,9 @@
   
 .logo a {
   margin-left: 20px;
-  text-decoration: none; /* Quita el subrayado */
-  color: white; /* Pone el texto en blanco */
-  font-size: 0.8em; /* Un tamaño más vistoso */
+  text-decoration: none; 
+  color: white;
+  font-size: 0.8em; 
   font-weight: bold;
 }
 .nav-links ul {
@@ -47,12 +47,6 @@
     padding-right: 30px;
     border: 5px #951abe;
 }
-
-/*.nav-links li #shop{ /*Esto serviria para marcar la casilla*/
-  /*  background-color: white;
-    color:#951abe 
-}*/
-
 .nav-links li a:hover {
   color: rgb(39, 37, 37);
 }

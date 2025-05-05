@@ -1,53 +1,64 @@
-
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-  
 
+/* Contenedor principal del layout */
 .parent {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-auto-rows: minmax(120px, auto);
-    gap: 0px; /*Eran 8*/
-    width: 100%; /* 100% del ancho de la ventana */
-    height: 100%; /* 100% del alto de la ventana */
+    grid-template-columns: repeat(6, 1fr); /* 6 columnas iguales */
+    grid-auto-rows: minmax(120px, auto);   /* Altura adaptable */
+    width: 100%;
+    height: 100%;
 }
-    
 
+/* Carrusel grande a la izquierda */
+.div1 {
+    grid-column: 1 / 3;    /* Ocupa columnas 1 y 2 */
+    grid-row: 1 / 4;       /* Ocupa filas 1 a 3 */
+    background-color: #951abe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Primer div a la derecha del carrusel */
+.div2 {
+    grid-column: 3 / 5;    /* Columnas 3 y 4 */
+    grid-row: 1 / 3;       /* Filas 1 y 2 */
+    background-color: #951abe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Segundo div a la derecha del carrusel */
 .div3 {
-    grid-column: span 2 / span 2;
-    grid-row: span 3 / span 3;
-    grid-row-start: 1;
+    grid-column: 5 / 7;    /* Columnas 5 y 6 */
+    grid-row: 1 / 3;       /* Filas 1 y 2 */
     background-color: #951abe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Imagen grande debajo de div2 y div3 */
 .div4 {
-    grid-column: span 2 / span 2;
-    grid-row: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 1;
+    grid-column: 3 / 7;    /* Columnas 3 a 6 */
+    grid-row: 3 / 5;       /* Filas 3 y 4 */
     background-color: #951abe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Botón grande debajo del carrusel */
 .div5 {
-    grid-row: span 2 / span 2;
-    grid-column-start: 5;
-    grid-row-start: 1;
+    grid-column: 1 / 3;    /* Columnas 1 y 2 */
+    grid-row: 4 / 5;       /* Fila 4 */
     background-color: #951abe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.div6 {
-    grid-column: span 3 / span 3;
-    grid-row: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 3;
-    background-color: #951abe;
-}
-
-.div7 {
-    grid-column: span 2 / span 2;
-    grid-row-start: 4;
-    background-color: #951abe;
-}
-   

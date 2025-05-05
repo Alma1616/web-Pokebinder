@@ -1,115 +1,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .searchBar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  /* El <ul> principal */
-  .searchBar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 2px; /* Espacio entre buscador y menú */
-  }
-  
-  /* Formulario de búsqueda */
-  .search-box {
-    margin-left: 15px;
-    display: flex;
-    align-items: center;
-    background-color: #9c27b0;
-    /*border-radius: 20px;*/
-    overflow: hidden;
-    width: clamp(220px,40vw,320px);
-  }
-  
-  .search-box input[type="text"] {
-    border: none;
-    padding: 10px 15px;
-    outline: none;
-    background: #9c27b0;
-    color: white;
-    font-size: 0.7em;
-    flex-grow: 1;
-    font-family: 'Press Start 2P', cursive;
-  }
-  
-  .search-box input[type="text"]::placeholder {
-    color: white;
-    opacity: 1;
-  }
-  
-  .search-box button {
-    background-color: black;
-    color: white;
-    border: none;
-    /*border-radius: 0 20px 20px 0;*/
-    padding: 20px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .search-box button:hover {
-    background-color: #6b1cb9;
-  }
-  
-  /* menu */
-  #menu {
-    list-style: none;
-    position: relative;
-    display: inline-block;
-    margin-left: 40px;
-    width: 230px;
-  
-  }
-  
-  
-  #menu img {
-    margin-top: 5px;
-    width: 100%;
-    border-radius: 0;
-    cursor: pointer;
-  }
-  
-  #menu ul {
-    width: 100%; /*100% del menu*/
-    display: none; 
-    position: absolute;
-    right: 0;
-    background-color: violet;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    border-radius: 8px;
-    z-index: 1;
-    box-sizing: border-box;
-  }
-  
-  #menu ul li {
-    text-align: center;
-  }
-  
-  #menu ul li a {
-    display: block;
-    padding: 10px 20px;
-    color: #951abe;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 15px;
-    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-sizing: border-box;
-  }
-  
-  #menu ul li a:hover {
-    background-color: white;
-  }
-  
-  #menu:hover ul {
-    display: block; /* <-- Mostramos el submenú cuando pasamos el ratón */
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* El <ul> principal */
+.searchBar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+}
+
+/* Formulario de búsqueda */
+.search-box {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #9c27b0;
+  overflow: hidden;
+  width: clamp(220px, 40vw, 320px);
+}
+
+.search-box input[type="text"] {
+  border: none;
+  padding: 10px 15px;
+  outline: none;
+  background: #9c27b0;
+  color: white;
+  font-size: 0.7em;
+  flex-grow: 1;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.search-box input[type="text"]::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.search-box button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 20px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #6b1cb9;
+}
+
+/* menu */
+#menu {
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  margin-left: 40px;
+  width: 230px;
+
+}
+
+
+#menu img {
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+#menu ul {
+  width: 100%;
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: violet;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+#menu ul li {
+  text-align: center;
+}
+
+#menu ul li a {
+  display: block;
+  padding: 10px 20px;
+  color: #951abe;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+}
+
+#menu ul li a:hover {
+  background-color: white;
+}
+
+#menu:hover ul {
+  display: block;/* <-- Mostramos el submenú cuando pasamos el ratón */
+}

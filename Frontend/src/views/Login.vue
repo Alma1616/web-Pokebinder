@@ -44,7 +44,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const email = ref('')
+const email = ref('') //Lo mismo que meterlos en data --> Pero se acede desde email.value
 const password = ref('')
 const error = ref('')
 

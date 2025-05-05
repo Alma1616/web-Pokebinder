@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 
 import Login from '@/views/Login.vue'
-import Signup from '../views/Signup.vue'
+import Signup from '@/views/Signup.vue'
 /*
 import register from '@/views/register.vue'
 import existingCollections from '@/views/existingCollections.vue'

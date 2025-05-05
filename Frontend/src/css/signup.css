@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
 }
-/* Full‑page centering */
+
 .signup-wrapper {
   min-height: 100%;
   box-sizing: border-box;
@@ -60,18 +60,18 @@ label {
   display: flex;
   flex-direction: column;
   text-align: left;
-  font-size: 0.7rem; /* larger */
+  font-size: 0.7rem; 
   margin-bottom: 1.2rem;
   color: #951abe;
 }
 
 input {
   font-family: inherit;
-  padding: 0.7rem; /* more padding */
+  padding: 0.7rem; 
   margin-top: 0.35rem;
   border: 2px solid #951abe;
   border-radius: 0.6rem;
-  font-size: 0.85rem; /* larger text */
+  font-size: 0.85rem; 
 }
 
 input:focus {
@@ -82,7 +82,7 @@ input:focus {
 /* LOGIN BUTTON */
 .signup-btn {
   margin-top: 0.7rem;
-  padding: 0.8rem 1rem; /* bigger button */
+  padding: 0.8rem 1rem; 
   font-family: inherit;
   font-size: 0.8rem;
   background: #951abe;
@@ -122,6 +122,6 @@ input:focus {
 
 .error {
   color: red;
-  font-size: 0.7rem; /* larger */
+  font-size: 0.7rem; 
   margin-top: 1.2rem;
 }

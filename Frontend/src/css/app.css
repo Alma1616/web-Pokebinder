@@ -24,7 +24,7 @@
   
   /* Responsive */
   .navbar{
-    flex:1 1 0;                  /* se expande y puede encoger */
+    flex:1 1 0;                 
     display:flex;
     align-items:center;
     background-color:#951abe; 

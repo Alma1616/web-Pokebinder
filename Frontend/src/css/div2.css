@@ -1,0 +1,61 @@
+.div2 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 5px;
+  
+}
+
+.card-image {
+  width: 70%;
+  max-width: 350px;
+  margin-bottom: 8px;
+  transform: scaleX(1.1); /*Estira la imagen un poco*/
+}
+
+.card-button {
+  position: absolute;
+  bottom: 65px; 
+  background-color: white;
+  color: #951abe;
+  padding: 6px 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  border: 2px solid #951abe;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* efectos del boton */
+.card-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #000;
+  transform: scaleX(0.3);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(.08, .35, .13, 1.02), opacity 0.4s;
+}
+
+.card-button:hover::before {
+  opacity: 1;
+  background-color: rgb(212, 115, 115);
+  transform: scaleX(1);
+}
+
+.card-button:hover {
+  color: white;
+  border-color: #6098FF;
+}

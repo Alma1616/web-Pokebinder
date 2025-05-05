@@ -1,0 +1,12 @@
+.div3 {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    padding-bottom: 5px;
+}
+/*El formato de la imagen y el resto está en div2.css*/
