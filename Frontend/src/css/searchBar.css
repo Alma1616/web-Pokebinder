@@ -47,9 +47,10 @@
   background-color: black;
   color: white;
   border: none;
-  padding: 20px 20px;
+  padding: 14px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
+  border-radius: 0px;
 }
 
 .search-box button:hover {

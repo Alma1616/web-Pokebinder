@@ -4,8 +4,8 @@
       <Carrousel />
     </div>
     <div class="div2">
-      <img src="@/photos/home/binder.webp" alt="Collections" class="card-image">
-      <router-link to="/collections" class="card-button">Collections <a>→</a></router-link>
+      <img src="@/photos/home/pokeball.jpg" alt="Collections" class="card-image">
+      <router-link to="/existingCollections" class="card-button">Collections <a>→</a></router-link>
     </div>
     <div class="div3">
       <img src="@/photos/home/energy.jpg" alt="Type cards" class="card-image">

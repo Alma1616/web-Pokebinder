@@ -48,7 +48,7 @@
   .content{
     flex:1;
     overflow-y:auto;
-    background:#951abe;
+    background: linear-gradient(145deg, white, #951abe 100%);;
   }
   
 /*Responsive*/

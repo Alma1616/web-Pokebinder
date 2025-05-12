@@ -1,20 +1,17 @@
 .div4 {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: #951abe;
-    
-  }
-  
-  
-  .pokemons-recom {
-    width: 90%;
-    height: 80%;
-    object-fit: cover; 
-  }
-  
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+
+.pokemons-recom {
+  width: 90%;
+  height: 80%;
+  object-fit: cover;
+}

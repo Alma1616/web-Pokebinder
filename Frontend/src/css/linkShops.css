@@ -1,0 +1,62 @@
+
+.shop-page {
+    min-height: 100vh;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(145deg, white, #951abe 100%);
+}
+
+.page-title {
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #951abe;
+    font-family: 'Press Start 2P', cursive;
+    padding-top: 15px;
+}
+
+.divider {
+    width: 60%;
+    margin: 0 auto 30px auto;
+    border: none;
+    border-top: 2px solid #797575;
+}
+
+.product-gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /*Gap entre las cajas*/
+    padding-top: 60px;
+}
+
+.product-item {
+    text-align: center;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Press Start 2P', cursive;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-title {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.product-link {
+    color: #951abe;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.product-link:hover {
+    text-decoration: underline;
+}

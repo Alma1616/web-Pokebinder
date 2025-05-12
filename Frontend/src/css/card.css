@@ -1,0 +1,103 @@
+.card {
+  position: relative;
+  background: #bca1c4;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.card-image {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1.0rem;
+}
+
+.card-type {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
+
+.footer-left, .footer-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.owned-toggle {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.owned-toggle.owned {
+  background-color: green;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem;
+  right: 10px;
+  bottom: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 2;
+  color: black;
+}
+
+
+.dropdown p {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  color: black;
+}
+
+.dropdown button:hover {
+  background-color: #f2f2f2;
+}

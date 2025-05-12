@@ -2,7 +2,7 @@
     <nav class="searchBar">
       <ul>
         <li>
-          <form @submit.prevent="buscarCarta" class="search-box">
+          <form @submit.prevent="searchCard()" class="search-box">
             <input v-model="busqueda" type="text" placeholder="Search for a card" required>
             <button type="submit">➔</button>
           </form>
@@ -38,12 +38,12 @@ export default {
   },
   data() {
     return {
-      busqueda: '' //acceder mediante this.busqueda
+      search: '' //acceder mediante this.busqueda
     }
   },
   methods: {
-    buscarCarta() {
-      this.$router.push({ path: '/buscar', query: { q: this.busqueda } });
+    searchCard() {
+      this.$router.push({ path: '/search', query: { q: this.busqueda } });
     }
   }
 }
