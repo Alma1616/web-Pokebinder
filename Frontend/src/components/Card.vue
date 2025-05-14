@@ -7,7 +7,7 @@
     <h3>{{ card.name }}</h3>
     <p class="card-type">{{ card.types?.join(', ') }}</p>
 
-    <!-- Barra inferior con acciones -->
+  
     <div class="card-footer">
       <!-- Botón owned -->
       <div class="footer-left" @click="toggleOwned">

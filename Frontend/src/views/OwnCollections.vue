@@ -1,6 +1,6 @@
 <template>
     <div class="collections-page">
-        <div v-if="!isLoggedIn" class="not-logged">
+        <div v-if="!session.sesionIniciada" class="not-logged">
             <h2 class="warning-text">You need to be logged in to see your collections</h2>
             <router-link to="/login" class="login-button">Log in</router-link>
         </div>
@@ -22,6 +22,8 @@
 </template>
 
 <script setup>
+import { useSessionStore } from '@/stores/session';
+const session = useSessionStore();
 import { ref } from 'vue'
 
 // Simulación de colecciones del usuario --> 2. Colecciones personalizadas
@@ -30,10 +32,6 @@ const collections = ref([
     { id: 2.2, name: 'Collection 2' },
     { id: 2.3, name: 'Collection 3' }
 ])
-
-// Simulación de sesión iniciada
-const isLoggedIn = ref(true)
-
 
 const editIcon = new URL('@/photos/iconoLapiz.png', import.meta.url).href
 </script>
@@ -144,8 +142,8 @@ const editIcon = new URL('@/photos/iconoLapiz.png', import.meta.url).href
 .create-button {
     background-color: #951abe;
     color: white;
-    font-size: 3rem;
-    padding: 15px 30px;
+    font-size: 2rem;
+    padding: 15px 20px;
     border: none;
     border-radius: 50%;
     margin-bottom: 5px;

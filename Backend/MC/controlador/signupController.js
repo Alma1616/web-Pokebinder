@@ -1,7 +1,25 @@
 const bcrypt = require('bcrypt');
-const hash = await bcrypt.hash('pikachu', 10);
+const authModel = require('../modelo/authModel.js');
 
-await db.execute(
-  'INSERT INTO usuarios (email, password) VALUES (?, ?)',
-  ['ash@kanto.com', hash]
-);
+async function signup(req, res) {
+  const { email, password, ciudad, pokemonFav } = req.body;
+
+  if (!email || !password || !ciudad || !pokemonFav) {
+    return res.status(400).json({ error: 'Not all responses from the form.' });
+  }
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const userId = await authModel.createUser(email, hashedPassword, ciudad, pokemonFav);
+    res.status(201).json({ message: 'Signup completed!', userId });
+  } catch (error) {
+    console.error('Signup error', error);
+    res.status(500).json({ error: 'Server error.' });
+  }
+}
+
+module.exports = { signup };
+
+
+
+

@@ -3,7 +3,6 @@
       <transition name="fade" mode="out-in">
         <img :key="current" :src="photos[current]" class="slide" />
       </transition>
-  
       <button class="nav prev" @click="prev" aria-label="Anterior">‹</button>
       <button class="nav next" @click="next" aria-label="Siguiente">›</button>
     </div>

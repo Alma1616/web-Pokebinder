@@ -7,6 +7,9 @@ const apiRoutes = require('./router/api');
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+
+
 app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true
@@ -17,12 +20,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
-app.use((req, res, next) => {
-  res.locals.sesionIniciada = req.session.comprovacion || false;
-  res.locals.contadorColecciones = req.session.colections || 0;
-  next();
-});
 
 app.use('/api', apiRoutes); //enrutador backend
 

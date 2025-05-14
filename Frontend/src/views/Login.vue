@@ -26,65 +26,49 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Login',
-  data() {
-    return {
-      email: '',
-      password: '',
-      mensaje: '',
-      error: false
-    };
-  },
-  methods: {
-    async handleLogin() {
-      try {
-        const response = await fetch('http://localhost:3000/api/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          credentials: 'include', // Importante para mantener la sesión
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password
-          })
-        });
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useSessionStore } from '@/stores/session';
 
-        const data = await response.json();
+const email = ref('');
+const password = ref('');
+const mensaje = ref('');
+const error = ref(false);
 
-        if (!response.ok) {
-          throw new Error(data.error || 'Error al iniciar sesión');
-        }
+const session = useSessionStore();
+const router = useRouter();
 
-        this.mensaje = data.mensaje;
-        this.error = false;
-        this.$router.push('/'); //Redirección si te loggeas bien
+async function handleLogin() {
+  try {
+    const response = await fetch('http://localhost:3000/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email: email.value, password: password.value })
+    });
 
-      } catch (err) {
-        this.mensaje = err.message;
-        this.error = true;
-      }
+    const data = await response.json();
+
+    if (!response.ok) {
+      await session.verificarSesion(); //Verificamos session aunque no haya sido loggeado --> Dejarlo en false
+      throw new Error(data.error || 'Error al iniciar sesión');
     }
+
+    mensaje.value = data.mensaje;
+    error.value = false;
+
+    await session.verificarSesion(); 
+    alert('Login completed!!');
+    router.push('/');
+
+  } catch (err) {
+    mensaje.value = err.message;
+    error.value = true;
   }
-};
-</script>
-<!--
-function handleLogin() {
-  if (!email.value || !password.value) {
-    error.value = 'Please enter your email and password'
-    return
-  }
-  const emailPattern = /[^@\s]+@[^@\s]+\.[^@\s]+/
-  if (!emailPattern.test(email.value)) {
-    error.value = 'Please enter a valid email address'
-    return
-  }
-  error.value = ''
-  emit('login', { email: email.value, password: password.value })
 }
-</script>-->
+</script>
+
 
 <style scoped>
 @import "@/css/login.css";
