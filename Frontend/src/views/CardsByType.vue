@@ -1,44 +1,47 @@
 <template>
-    <div>
-        <h2>Cartas de tipo: {{ type }}</h2>
-        <div class="card-grid">
-            <div v-for="card in filteredCards" :key="card.id" class="card">
-                <img :src="card.images.small" :alt="card.name" />
-                <p>{{ card.name }}</p>
-            </div>
-        </div>
-    </div>
+  <CollectionView
+    v-if="collection && collection.name && collection.cards"
+    :title="collection.name"
+    :cards="collection.cards"
+  />
+  <p v-else>No cards yet :(</p>
 </template>
 
-<script>
-import base1 from '@/Pokemons/base1.json';
-import base2 from '@/Pokemons/base2.json';
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import CollectionView from '@/components/CollectionView.vue';
 
-export default {
-    props: ['type'],
+const route = useRoute();
+const collection = ref(null);
 
-    data() {
-        return {
-            allCards: [...base1, ...base2],
-            type: this.$route.params.type
-        };
-    },
+onMounted(async () => {
+  const type = route.params.type;
 
-    computed: {
-        filteredCards() {
-            return this.allCards.filter(card =>
-                (card.types || []).includes(this.type)
-            );
-        }
-    },
+  try {
+    const res = await fetch(`http://localhost:3000/api/predefined/${type}`, {
+      credentials: 'include'
+    });
 
-    watch: {
-        '$route.params.type': {
-            handler(newType) {
-                this.type = newType;
-            },
-            immediate: true
-        }
+    const data = await res.json();
+
+    if (data && data.name && Array.isArray(data.cards)) {
+      collection.value = data;
+    } else {
+      console.warn('Formato de colección inválido:', data);
     }
-};
+
+  } catch (err) {
+    console.error('Error loading collection by type:', err);
+  }
+});
 </script>
+
+<style scoped>
+p {
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
+}
+</style>

@@ -22,7 +22,7 @@ export default {
         const collectionId = this.$route.params.id;
 
         try {
-            const res = await fetch(`http://localhost:3000/api/predefined/collection/${collectionId}`, {
+            const res = await fetch(`http://localhost:3000/api/me/collections/${collectionId}`, {
                 credentials: 'include'
             });
             const data = await res.json();

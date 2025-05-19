@@ -4,7 +4,7 @@ import { ref } from 'vue';
 
 export const useSessionStore = defineStore('session', () => {
   const sesionIniciada = ref(false);
-  const usuario = ref(null);
+  const usuario = ref(null);  
 
   async function verificarSesion() {
     try {

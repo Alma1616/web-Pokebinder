@@ -1,34 +1,26 @@
-<template> <!-- COMPONENTE QUE SE PONE EN COLLECTIONVIEWPAGE-->
+<!-- COMPONENTE QUE SE PONE EN COLLECTIONVIEWPAGE-->
+<template>
   <div class="collection-container">
-    <h1 class="collection-title"></h1>
-    
+    <h1 class="collection-title">{{ title }}</h1>
     <div class="card-grid">
-      <Card v-for="card in filteredCards" :key="card.id" :card="card" />
+      <Card v-for="card in cards" :key="card.card_id" :card="card" />
     </div>
   </div>
 </template>
 
-<script>
-import base1 from '@/pokemons/base1.json'
+<script setup>
 import Card from '@/components/Card.vue'
-import base2 from '@/pokemons/base2.json'
 
-export default {
-  components: { Card },
-  data() {
-    return {
-      allCards: []
-    }
+defineProps({
+  title: {
+    type: String,
+    required: true
   },
-  created() {
-    this.allCards = [...base1, ...base2];
-  },
-  computed: {
-    filteredCards() { //Función para filtarr cartas (ejemplo con los puntos de videa)
-      return this.allCards //.filter(card => card.hp >= 0)
-    }
+  cards: {
+    type: Array,
+    required: true
   }
-}
+});
 </script>
 
 <style scoped>
@@ -44,7 +36,7 @@ export default {
   margin-bottom: 2rem;
   font-size: 2rem;
   color: #333;
-  font-family: 'Press Start 2P', cursive;   
+  font-family: 'Press Start 2P', cursive;
 }
 
 .card-grid {

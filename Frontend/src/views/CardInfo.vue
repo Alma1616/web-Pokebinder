@@ -1,24 +1,15 @@
-<template><!--MUESTRA LA INFO DE LA CARTA AL HACER CLICK EN ELLA-->
+<template>
+  <!-- MUESTRA LA INFO DE LA CARTA AL HACER CLICK EN ELLA -->
   <div class="info-container" v-if="card">
     <div class="card-info">
-      <img :src="card.images.large" alt="Full card image" />
+      <img :src="card.imageUrl" alt="Full card image" />
 
       <div class="card-details">
         <h1>{{ card.name }}</h1>
         <p><strong>Type:</strong> {{ card.types?.join(', ') }}</p>
         <p><strong>HP:</strong> {{ card.hp }}</p>
         <p><strong>Rarity:</strong> {{ card.rarity }}</p>
-        <p><strong>Pokédex Number:</strong> {{ card.nationalPokedexNumbers?.[0] }}</p>
-
-        <div v-if="card.abilities?.length">
-          <h3>Abilities:</h3>
-          <ul>
-            <li v-for="ability in card.abilities" :key="ability.name">
-              <strong>{{ ability.name }}:</strong> {{ ability.text }}
-            </li>
-          </ul>
-        </div>
-
+      
         <div v-if="card.attacks?.length">
           <h3>Attacks:</h3>
           <ul>
@@ -36,21 +27,31 @@
 </template>
 
 <script>
-import cardData from '@/pokemons/base1.json'
-
 export default {
   data() {
     return {
       card: null
     }
   },
-  created() {
-    const id = this.$route.params.id
-    this.card = cardData.find(c => c.id === id) //Para guardar la info en la carta
+  async created() {
+    const id = this.$route.params.id;
+    try {
+      const res = await fetch(`http://localhost:3000/api/cards/${id}`, {
+        credentials: 'include'
+      });
+
+      if (!res.ok) {
+        throw new Error(`Card not found: ${id}`);
+      }
+
+      this.card = await res.json();
+    } catch (err) {
+      console.error('Error loading card details:', err);
+    }
   }
 }
 </script>
 
 <style scoped>
-@import '@/css/CardInfo.css'; 
+@import '@/css/CardInfo.css';
 </style>

@@ -19,10 +19,12 @@ async function login(req, res) {
       return res.status(401).json({ error: 'Email or password incorrect!!' });
     }
 
-    req.session.comprovacion = true;
-    req.session.usuario = usuario.email;
+    req.session.comprovacion = true; //Incializamos la session del usuario registardo
+    req.session.usuario = {
+      email: usuario.email,
+      id: usuario.user_id}; //Guardamos el mail e ID --> Identificador del user
 
-    res.json({ mensaje: 'Login Correct!!', usuario: usuario.email });
+    res.json({ mensaje: 'Login Correct!!', usuario: req.session.usuario});
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Server Error' });

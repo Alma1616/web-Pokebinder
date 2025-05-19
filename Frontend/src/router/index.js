@@ -14,6 +14,9 @@ import CardRecom from '@/views/CardRecom.vue'
 import Notices from '@/views/Notices.vue'
 import CardsByType from '@/views/CardsByType.vue'
 import Search from '@/views/Search.vue'
+import ExistingCollectionsByType from '@/views/ExistingCollectionsByType.vue'
+import CreateCollection from '@/views/CreateCollection.vue'
+import OwnCollectionsView from '@/views/OwnCollectionsView.vue'
 /*
 import register from '@/views/register.vue'
 import existingCollections from '@/views/existingCollections.vue'
@@ -30,21 +33,14 @@ const routes = [
   {path: '/ownCollections', component: OwnCollections },
   {path:'/existingCollections', component: ExistingCollections},
   {path: '/Collection/:id', component: CollectionViewPage },
-  {path:'/OwnCollection/:id', component:CollectionViewPage},
+  {path:'/OwnCollection/:id', component:OwnCollectionsView},
   {path:'/card/:id', component:CardInfo},
   {path:'/cardRecom', component:CardRecom},
-  {path:'/cardByType',component:CardsByType},
-  { path: '/collection-type/:type', component: CardsByType },
+  {path:'/cardByType',component:ExistingCollectionsByType},
+  {path: '/collection-type/:type', component: CardsByType },
   {path:'/notices',component:Notices},
-  {path:'/search',component:Search}
- /* 
-  { path: '/existingCollections', component: existingCollections },
-  { path: '/ownCollections', component: personalCollections },
-  { path: '/notOwnCollections', component: notOwnCollections },
-  ,
-  { path: '/infoUser', component: infoUser },
-  { path: '/logOuut', component: logOut },
-  { path: '/:pathMatch(.*)*', redirect: '/' } // Redirige a home si no existe*/
+  {path:'/search',component:Search},
+  {path:'/createCollection', component:CreateCollection}
 ]
 
 const router = createRouter({

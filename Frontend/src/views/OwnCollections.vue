@@ -7,33 +7,48 @@
 
         <div v-else>
             <h2 class="collections-title">Your custom collections</h2>
-             <div class="collections-grid">
-            <router-link v-for="(collection, index) in collections" :key="index" :to="`/OwnCollection/${collection.id}`" 
-            class="collection-box"> 
-                <img :src="editIcon" alt="Edit" class="edit-icon" />
-                <h3 class="collection-title">{{ collection.name }}</h3>
-            </router-link>
-            <router-link to="/create-collection" class="create-box">
-                <button class="create-button">+</button>
-                <p>Create collection</p>
-            </router-link>
-        </div> </div>
+            <div class="collections-grid">
+                <router-link v-for="(collection, index) in collections" :key="index"
+                    :to="`/OwnCollection/${collection.id}`" class="collection-box">
+                    <img :src="editIcon" alt="Edit" class="edit-icon" />
+                    <h3 class="collection-title">{{ collection.name }}</h3>
+                </router-link>
+
+                <router-link to="/createCollection" class="create-box">
+                    <button class="create-button">+</button>
+                    <p>Create collection</p>
+                </router-link>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue';
 import { useSessionStore } from '@/stores/session';
+
 const session = useSessionStore();
-import { ref } from 'vue'
+const collections = ref([]);
+const editIcon = new URL('@/photos/iconoLapiz.png', import.meta.url).href;
 
-// Simulación de colecciones del usuario --> 2. Colecciones personalizadas
-const collections = ref([
-    { id: 2.1, name: 'Collection 1' },
-    { id: 2.2, name: 'Collection 2' },
-    { id: 2.3, name: 'Collection 3' }
-])
+const fetchUserCollections = async () => {
+    try {
+        const res = await fetch(`http://localhost:3000/api/me/collections`, {
+            credentials: 'include'
+        });
 
-const editIcon = new URL('@/photos/iconoLapiz.png', import.meta.url).href
+        if (!res.ok) throw new Error('Failed to fetch collections');
+
+        const data = await res.json();
+        collections.value = data.collections;
+    } catch (error) {
+        console.error('Error loading user collections:', error);
+    }
+};
+
+onMounted(() => {
+    fetchUserCollections();
+});
 </script>
 
 <style scoped>
@@ -46,6 +61,7 @@ const editIcon = new URL('@/photos/iconoLapiz.png', import.meta.url).href
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-direction: column;
 }
 
 .not-logged .warning-text {
@@ -69,21 +85,21 @@ const editIcon = new URL('@/photos/iconoLapiz.png', import.meta.url).href
     background-color: #7414a1;
 }
 
+.collections-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: black;
+}
+
 .collections-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: flex-start;
-}
-.collections-title {
-    font-size: 2rem;
-  margin-bottom: 30px;
-  text-align: center;
-  font-family: 'Press Start 2P', cursive;
-  color: black;
+    justify-content: center;
 }
 
-.collection-box{
+.collection-box {
     width: 250px;
     height: 200px;
     background-color: white;

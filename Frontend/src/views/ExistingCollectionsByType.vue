@@ -1,10 +1,11 @@
 <template>
     <div class="collections-page">
         <div>
-            <h2 class="collections-title">Pokémon TCG Collections</h2>
+            <h2 class="collections-title">Pokémon TCG Collections by Type</h2>
             <div class="collections-grid">
                 <router-link v-for="(collection, index) in collections" :key="index"
-                    :to="`/collection/${collection.id}`" class="collection-box">
+                    :to="`/collection-type/${getTypeFromName(collection.name)} Type`" class="collection-box">
+                    <!--Para ver el ojo y poder poner el nombre a la colección-->
                     <img :src="seeIcon" alt="See" class="edit-icon" />
                     <h3 class="collection-title">{{ collection.name }}</h3>
                 </router-link>
@@ -25,14 +26,17 @@ onMounted(async () => {
             credentials: 'include'
         });
         const data = await res.json();
-
-        // NO queremos las que son de tipos
-        collections.value = data.filter(c => c.category !== 'type');
+        collections.value = data.filter(c => c.category === 'type');
 
     } catch (err) {
-        console.error('Error loading collections:', err);
+        console.error('Error loading collections by type:', err);
     }
 });
+
+// Extraer el tipo de pokemon
+function getTypeFromName(name) {
+    return name.replace(' Type', '').toLowerCase();
+}
 </script>
 
 <style scoped>
