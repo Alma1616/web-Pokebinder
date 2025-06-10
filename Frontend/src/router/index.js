@@ -17,12 +17,13 @@ import Search from '@/views/Search.vue'
 import ExistingCollectionsByType from '@/views/ExistingCollectionsByType.vue'
 import CreateCollection from '@/views/CreateCollection.vue'
 import OwnCollectionsView from '@/views/OwnCollectionsView.vue'
+import infoUser from '@/views/AccountSettings.vue'
 /*
 import register from '@/views/register.vue'
 import existingCollections from '@/views/existingCollections.vue'
 import personalCollections from '@/views/personalCollections.vue
 
-import infoUser from '@/views/infoUser.vue'
+
 import logOut from '@/views/logOut.vue'*/
 
 const routes = [
@@ -40,7 +41,8 @@ const routes = [
   {path: '/collection-type/:type', component: CardsByType },
   {path:'/notices',component:Notices},
   {path:'/search',component:Search},
-  {path:'/createCollection', component:CreateCollection}
+  {path:'/createCollection', component:CreateCollection},
+  {path:'/infoUser', component:infoUser}
 ]
 
 const router = createRouter({

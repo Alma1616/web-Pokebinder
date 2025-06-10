@@ -6,6 +6,8 @@ const predefinedModel = require('../MC/modelo/predefinedModel.js');
 const cardInfoModel = require('../MC/modelo/cardInfoModel.js');
 const ownCollectionModel = require('../MC/modelo/ownCollectionModel.js')
 const searchModel = require('../MC/modelo/searchModel.js')
+const noticeModel = require('../MC/modelo/noticesModel.js')
+const userController = require('../MC/controlador/accountSettingsController.js');
 const { getCollectionById } = require('../MC/modelo/searchExistCollModel.js');
 
 
@@ -72,7 +74,7 @@ router.get('/predefined/collection/:id', async (req, res) => {
 });
 
 
-
+ //Ayuda a devolver las cartas de las colecciones para ver la info de cada una --> /cardInfo.vue
 router.get('/cards/:id', async (req, res) => {
   try {
     const card = await cardInfoModel.getCardById(req.params.id);
@@ -87,7 +89,7 @@ router.get('/cards/:id', async (req, res) => {
   }
 });
 
-
+//se trabaja Todo en el modelo --> En las funciones llamadas en ownCollectionModel
 // Obtener colecciones del usuario autenticado
 router.get('/me/collections', ownCollectionModel.getMyCollections);
 
@@ -100,12 +102,12 @@ router.post('/collections/:collectionId/cards', ownCollectionModel.addCardToColl
 // Eliminar carta de una colección del usuario
 router.delete('/collections/:collectionId/cards/:cardId', ownCollectionModel.removeCardFromCollection);
 
-//obtener cartas de las colecciones
+//obtener cartas de las colecciones --> Colecciones del user 
 router.get('/me/collections/:collectionId', ownCollectionModel.getCardsFromMyCollection);
 
 
 
-//Buscar cartas en la BD cuando el user busca 
+//Buscar cartas en la BD cuando el user busca en SearchBar
 router.get('/cards/search/:id', async (req, res) => {
   const q = req.params.id;//cojer valor que se pasa por la URL.
 
@@ -118,5 +120,19 @@ router.get('/cards/search/:id', async (req, res) => {
     res.status(500).json({ error: err.message || 'Failed to search cards' });
   }
 });
+
+//Búsqueda de noticias en la BD --> Se puede ir añadiendo y gestionando.
+router.get('/notices', async (req, res) => {
+  try {
+    const notices = await noticeModel.getAllNotices();
+    res.json(notices);
+  } catch (err) {
+    console.error('Error fetching notices:', err);
+    res.status(500).json({ error: 'Failed to fetch notices' });
+  }
+});
+
+router.post('/newData', userController.updateAccount)
+
 
 module.exports = router; 

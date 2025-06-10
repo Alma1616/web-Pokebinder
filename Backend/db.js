@@ -2,6 +2,8 @@ require('dotenv').config({ path: __dirname + '/.env' }); //para que todos los ar
 console.log('DB_SERVER:', process.env.DB_SERVER);
 const sql = require('mssql');
 
+//EXISTE UNA FUNCION --> .query -->  que ejecuta la query en la DB directamente 
+//.query --> SE USA CUANDO SE QUIERE HACER UNA CONSULTA MÁS COMPLEJA 
 const config = {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -16,7 +18,7 @@ const config = {
 const pool = new sql.ConnectionPool(config);
 const poolConnect = pool.connect();
 
-async function execute(query, params = []) {
+async function execute(query, params = []) { //Función personalizada con consultas parametrizadas 
   await poolConnect;
   const request = pool.request();
 

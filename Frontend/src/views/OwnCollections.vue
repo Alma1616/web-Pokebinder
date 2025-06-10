@@ -1,5 +1,6 @@
 <template>
     <div class="collections-page">
+        <!--Si el user no está loggeado no tiene colecciones -->
         <div v-if="!session.sesionIniciada" class="not-logged">
             <h2 class="warning-text">You need to be logged in to see your collections</h2>
             <router-link to="/login" class="login-button">Log in</router-link>

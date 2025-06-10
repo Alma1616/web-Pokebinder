@@ -51,22 +51,26 @@ async function handleLogin() {
     const data = await response.json();
 
     if (!response.ok) {
-      await session.verificarSesion(); //Verificamos session aunque no haya sido loggeado --> Dejarlo en false
       throw new Error(data.error || 'Error al iniciar sesión');
     }
 
     mensaje.value = data.mensaje;
     error.value = false;
 
-    await session.verificarSesion(); 
-    alert('Login completed!!');
-    router.push('/');
+    // Espera un pequeño delay para asegurar que la cookie se setea
+    setTimeout(async () => {
+      await session.verificarSesion();
+      alert('Login completed!!');
+      router.push('/');
+    }, 100); // una espera 
 
   } catch (err) {
     mensaje.value = err.message;
     error.value = true;
   }
 }
+
+
 </script>
 
 
