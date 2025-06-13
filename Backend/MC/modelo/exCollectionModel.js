@@ -1,4 +1,4 @@
-const db = require('../../db');
+const db = require('../../db.js');
 
 // Obtener colecciones propias del usuario
 async function getUserCollections(req, res) {

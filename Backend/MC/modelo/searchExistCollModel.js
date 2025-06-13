@@ -1,4 +1,4 @@
-const { pool, sql } = require('../../db');
+const { pool, sql } = require('../../db.js');
 
 async function getCollectionById(id) {
   try {

@@ -9,6 +9,8 @@ const searchModel = require('../MC/modelo/searchModel.js')
 const noticeModel = require('../MC/modelo/noticesModel.js')
 const userController = require('../MC/controlador/accountSettingsController.js');
 const { getCollectionById } = require('../MC/modelo/searchExistCollModel.js');
+const cardRecom = require('../MC/modelo/cardRecomModel.js');
+
 
 
 router.post('/login',loginController.login );
@@ -133,6 +135,17 @@ router.get('/notices', async (req, res) => {
 });
 
 router.post('/newData', userController.updateAccount)
+
+//RUTA que devolverá todas las cartas --> Coger una random después
+router.get('/cards', async (req, res) => {
+  try {
+    const cards = await cardRecom.getAllCards();
+    res.json(cards);
+  } catch (err) {
+    console.error('Error fetching cards:', err);
+    res.status(500).json({ error: 'Failed to fetch cards' });
+  }
+});
 
 
 module.exports = router; 

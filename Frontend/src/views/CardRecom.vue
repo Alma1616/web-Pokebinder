@@ -11,31 +11,44 @@
     </div>
 </template>
 <script>
-import base1 from '@/pokemons/base1.json'
-import base2 from '@/pokemons/base2.json'
 import Card from '@/components/Card.vue'
-export default {
-    components:{
-        Card
-    },
-    data() {
-        return {
-            allCards: [],
-            randomCard: null
-        }
-    },
-    created() {
-        this.allCards = [...base1, ...base2]; //concatenar los dos json
-    },
-    methods: {
-        random() {
-            const randomIndex = Math.floor(Math.random() * this.allCards.length);
-            this.randomCard = this.allCards[randomIndex];
 
+export default {
+  components: {
+    Card
+  },
+  data() {
+    return {
+      allCards: [],
+      randomCard: null
+    };
+  },
+  created() {
+    this.fetchCardsFromDB();
+  },
+  methods: {
+    async fetchCardsFromDB() {
+      try {
+        const res = await fetch('http://localhost:3000/api/cards', {
+          credentials: 'include'
+        });
+        if (!res.ok){
+            throw new Error('Failed to fetch cards');
         }
+        this.allCards = await res.json();
+      } catch (err) {
+        console.error('Error loading cards', err);
+      }
+    },
+    random() {
+      if (this.allCards.length === 0) return;
+      const randomIndex = Math.floor(Math.random() * this.allCards.length);
+      this.randomCard = this.allCards[randomIndex];
     }
+  }
 }
 </script>
+
 <style>
 .recommendation-page {
     background: linear-gradient(135deg, #ffe9f5, #d7c7f4);
