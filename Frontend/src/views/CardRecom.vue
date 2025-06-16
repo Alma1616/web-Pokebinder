@@ -51,7 +51,7 @@ export default {
 
 <style>
 .recommendation-page {
-    background: linear-gradient(135deg, #ffe9f5, #d7c7f4);
+    background: linear-gradient(145deg, white, #951abe 100%);
     min-height: 100vh;
     padding: 40px 20px;
     display: flex;
