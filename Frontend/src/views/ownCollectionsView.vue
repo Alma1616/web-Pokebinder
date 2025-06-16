@@ -1,3 +1,4 @@
+<!--Vistas de una coleccion personalizadas del usuario(muestra la propia coleccion con sus cartas)-->
 <template>
     <div v-if="collection">
         <CollectionView :title="collection.name" :cards="collection.cards" />

@@ -1,8 +1,10 @@
+<!--Vista de la recomendación de cartas-->
 <template>
     <div class="recommendation-page">
         <div class="page-title">
             <p>DRAW A CARD!!</p>
         </div>
+        <!--Función que devuelve una carta totalmente random-->
         <button @click="random">Show a card recommendation, what would it be?</button>
         <div v-if="randomCard" class="card-img"> <!--Se muestra si hay una carta seleccionada-->
             <h2 class="text-xl font-bold mb-2">Our recommendation:</h2>

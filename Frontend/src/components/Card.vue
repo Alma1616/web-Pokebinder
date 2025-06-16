@@ -1,3 +1,4 @@
+<!--Componente que muestra las Cartas(con el botón y desplegable)-->
 <template>
   <div class="card">
     <router-link :to="`/card/${card.card_id}`" class="card-image">

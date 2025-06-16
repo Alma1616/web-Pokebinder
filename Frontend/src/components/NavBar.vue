@@ -1,3 +1,4 @@
+<!--Primera parte de la barra que tiene la web en todo momento-->
 <template>
     <div class="header">
       <div class="logo">

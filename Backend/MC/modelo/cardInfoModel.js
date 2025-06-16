@@ -24,7 +24,7 @@ async function getCardById(cardId) {
   // Convertimos los tipos separados por comas en un array
   card.types = card.types ? card.types.split(',') : [];
 
-  // Parseo seguro de ataques
+  // Parseo --> Evitar ataques de Inyección SQL
   try {
     card.attacks = JSON.parse(card.attacks || '[]');
   } catch {

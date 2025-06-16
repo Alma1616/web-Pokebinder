@@ -1,3 +1,4 @@
+<!--Se encarga de mostrar los resultados de la búsqueda de ua carta-->
 <template>
   <div class="collections-page">
     <div>

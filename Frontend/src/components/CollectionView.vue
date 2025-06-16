@@ -1,4 +1,5 @@
-<!-- COMPONENTE QUE SE PONE EN COLLECTIONVIEWPAGE-->
+<!-- COMPONENTE QUE SE PONE EN COLLECTIONVIEWPAGE
+ Permite ver todas las cartas de una coleccione (en fila)-->
 <template>
   <div class="collection-container">
     <h1 class="collection-title">{{ title }}</h1>

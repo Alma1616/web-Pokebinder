@@ -1,3 +1,4 @@
+<!--Vista de las coleccioenes propias del user, donde selecciona cuando quiere acceder a una-->
 <template>
     <div class="collections-page">
         <!--Si el user no está loggeado no tiene colecciones -->

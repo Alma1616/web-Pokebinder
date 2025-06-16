@@ -1,8 +1,10 @@
+<!--Pantalla de inicio de la web contiene los componentes de la portada y respectivas imágenes-->
 <template>
   <div class="parent">
     <div class="div1">
       <Carrousel />
     </div>
+    <!--Imágenes estáticas porqué no se pretende cambiarlas en ningún momento -- No hace alta que estén en la BD-->
     <div class="div2">
       <img src="@/photos/home/pokeball.jpg" alt="Collections" class="card-image">
       <router-link to="/existingCollections" class="card-button">Collections <a>→</a></router-link>

@@ -1,3 +1,5 @@
+<!-- Vista que ofrece unas colecciones predefinida separando las cartas por su aributo
+ (Si se añadiesen más cartas se insertan auto en las colecciones)-->
 <template>
   <CollectionView
     v-if="collection && collection.name && collection.cards"

@@ -9,6 +9,7 @@ async function signup(req, res) {
   }
 
   try {
+    //usamos la función bcrypt para hashear y comprobar que la contraseña es válida
     const hashedPassword = await bcrypt.hash(password, 10);
     const userId = await authModel.createUser(email, hashedPassword, ciudad, pokemonFav);
     res.status(201).json({ message: 'Signup completed!', userId });

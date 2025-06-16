@@ -1,5 +1,6 @@
 const db = require('../../db.js');
 
+//FICHERO que gestiona las colecciones peronales --> Los distintos endpoint y sus casuisticas
 // /api/me/collections
 async function getMyCollections(req, res) {
   if (!req.session.usuario) {

@@ -1,3 +1,4 @@
+<!--Página de Signup-->
 <template>
   <div class="signup-wrapper">
     <div class="signup-card">
@@ -5,7 +6,7 @@
       <h1 class="title">PokéSignup</h1>
       <p class="subtitle">Gotta sign 'em all!</p>
 
-      <!-- SIGNUP FORM -->
+      <!-- Formulario de SIGNUP (Parecido al de login) -->
       <form @submit.prevent="handleSignUp" novalidate>
         <label>
           <span>Trainer Email</span>

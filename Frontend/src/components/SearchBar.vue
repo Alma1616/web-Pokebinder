@@ -1,3 +1,4 @@
+<!--Segunda parte de la barra superior: Contiene el buscador y el botó para gestionar el usuario-->
 <template>
   <nav class="searchBar">
     <ul>

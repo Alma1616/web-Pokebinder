@@ -1,3 +1,4 @@
+<!--Vista que ofrece las colecciones, que colecciones existen y están disponibles-->
 <template>
     <div v-if="collection">
         <CollectionView :title="collection.name" :cards="collection.cards" />

@@ -8,7 +8,7 @@
                 <p class="error">You are not logged in.</p>
                 <RouterLink to="/login" class="signup-link">Go to Login</RouterLink>
             </div>
-
+            <!--Permite hacer cambios en los datos de un user, y muestra su email actual-->
             <form v-else @submit.prevent="handleUpdate" novalidate>
                 <p class="subtitle">Current Email: {{ session.usuario?.email }}</p>
 

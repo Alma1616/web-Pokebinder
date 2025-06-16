@@ -1,3 +1,4 @@
+<!--Pequeño menú que permite crear una colección propia-->
 <template>
   <div class="create-page">
     <h2>Create New Collection</h2>
