@@ -70,6 +70,17 @@ async function addCardToCollection(req, res) {
       return res.status(403).json({ error: 'Forbidden: Not your collection' });
     }
 
+    // Verificar si la carta ya existe en la colección
+    const [existing] = await db.execute(
+      'SELECT * FROM Collection_cards WHERE collection_id = ? AND card_id = ?',
+      [collectionId, card_id]
+    );
+
+    if (existing.length > 0) {
+      return res.status(409).json({ error: 'Card already exists in the collection' });
+    }
+
+    // Insertar la carta si no está
     await db.execute(
       'INSERT INTO Collection_cards (collection_id, card_id) VALUES (?, ?)',
       [collectionId, card_id]
@@ -81,6 +92,7 @@ async function addCardToCollection(req, res) {
     res.status(500).json({ error: 'Failed to add card to collection' });
   }
 }
+
 
 // DELETE /api/collections/:collectionId/cards/:cardId
 async function removeCardFromCollection(req, res) {

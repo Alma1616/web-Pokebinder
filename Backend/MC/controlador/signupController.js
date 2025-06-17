@@ -9,6 +9,11 @@ async function signup(req, res) {
   }
 
   try {
+
+    const existingUser = await authModel.findUserByEmail(email);
+    if (existingUser) {
+      return res.status(409).json({ error: 'Email already registered.' });
+    }
     //usamos la función bcrypt para hashear y comprobar que la contraseña es válida
     const hashedPassword = await bcrypt.hash(password, 10);
     const userId = await authModel.createUser(email, hashedPassword, ciudad, pokemonFav);

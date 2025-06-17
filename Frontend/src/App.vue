@@ -27,7 +27,8 @@ export default {
 }
 
 </script>
-<style>  /* quitar hueco que sobresalia */
+<style> 
+ /* quitar hueco que sobresalia */
 html, body {
   height: 100%;
   margin: 0;           
