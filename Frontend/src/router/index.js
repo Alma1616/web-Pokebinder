@@ -16,15 +16,9 @@ import CardsByType from '@/views/CardsByType.vue'
 import Search from '@/views/Search.vue'
 import ExistingCollectionsByType from '@/views/ExistingCollectionsByType.vue'
 import CreateCollection from '@/views/CreateCollection.vue'
-import OwnCollectionsView from '@/views/OwnCollectionsView.vue'
+import OwnCollectionsView from '@/views/ownCollectionsView.vue'
 import infoUser from '@/views/AccountSettings.vue'
-/*
-import register from '@/views/register.vue'
-import existingCollections from '@/views/existingCollections.vue'
-import personalCollections from '@/views/personalCollections.vue
 
-
-import logOut from '@/views/logOut.vue'*/
 
 const routes = [
   { path: '/', component: Home },

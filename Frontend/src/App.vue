@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
+import Navbar from '@/components/NavBar.vue'
 import SearchBar from '@/components/SearchBar.vue'
 
 export default {

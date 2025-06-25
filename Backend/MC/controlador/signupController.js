@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const authModel = require('../modelo/authModel.js');
 
 async function signup(req, res) {

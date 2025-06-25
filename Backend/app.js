@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:8080',
   credentials: true
 }));
 
@@ -28,5 +28,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT} y app corriendo en http://localhost:8080`);
 });

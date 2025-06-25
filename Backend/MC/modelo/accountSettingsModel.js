@@ -1,5 +1,5 @@
 const db = require('../../db.js');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Obtener email y hash de un usuario
 async function getUserCredentials(userId) {

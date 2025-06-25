@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const User = require('../modelo/authModel.js');
 
 function validarEmail(email) { //comprueba que el mail tenga un formato válido
