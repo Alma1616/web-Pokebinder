@@ -1,15 +1,19 @@
+# frontend/Dockerfile
+FROM node:22-slim
 
-FROM node:22-slim AS builder
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+# 1️⃣ Forzamos que npm instale TODO (devDependencies incluidas)
+ENV NODE_ENV=development
+ENV NPM_CONFIG_PRODUCTION=false
 
-RUN npm ci --include=dev
+COPY package.json package-lock.json ./
+RUN npm install
 
+# 2️⃣ Aseguramos permiso de ejecución a Vite
+RUN chmod +x node_modules/.bin/vite
+
+# 3️⃣ Copiamos el resto y arrancamos el servidor de desarrollo
 COPY . .
-RUN npm run build
-
-FROM nginx:stable-alpine
-COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 5173
+CMD ["npm", "run", "dev"]
