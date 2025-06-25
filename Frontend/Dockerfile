@@ -1,17 +1,15 @@
-########################
-#  Fase de compilación #
-########################
-FROM node:22-slim AS builder          
+
+FROM node:22-slim AS builder
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm ci --include=dev           
+RUN npm ci --include=dev
 
 COPY . .
-RUN npm run build                     
+RUN npm run build
 
-FROM nginx:stable-alpine              
+FROM nginx:stable-alpine
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
