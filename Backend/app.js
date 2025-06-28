@@ -28,5 +28,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT} y app corriendo en http://localhost:8080`);
+  console.log(`Servidor corriendo en http://localhost:${PORT} y app corriendo en http://localhost:5173`);
 });

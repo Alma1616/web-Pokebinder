@@ -1,3 +1,4 @@
+version: "3.8"
 services:
   backend:
     build:
@@ -12,10 +13,7 @@ services:
   frontend:
     build:
       context: ./Frontend
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./Frontend:/usr/src/app         
-      - /usr/src/app/node_modules       
+      dockerfile: Dockerfile.dev     
     environment:
       NODE_ENV: development
       VITE_API_BASE_URL: http://backend:3000
